@@ -12,20 +12,19 @@
     #Takes the action's type from the request.
     $action = $_REQUEST['action'];
 
-    ## ROUTES:
-    # Route Read:
-    if ($action == 'read') {
-        read($link);
-    }
+    switch ($action) {
+        case 'read':
+            read($link);
+        break;
+        
+        case 'create':
+            $nome = $_REQUEST['nome'];
+            $sobrenome = $_REQUEST['sobrenome'];
+            $email = $_REQUEST['email'];
+            $celular = $_REQUEST['celular'];
+            $fotografia = $_REQUEST['fotografia'];
 
-    #Route Create:
-    if ($action == 'create') {
-        $nome = $_REQUEST['nome'];
-        $sobrenome = $_REQUEST['sobrenome'];
-        $email = $_REQUEST['email'];
-        $celular = $_REQUEST['celular'];
-        $fotografia = $_REQUEST['fotografia'];
-
-        create($nome, $sobrenome, $email, $celular, $fotografia, $link);
+            create($nome, $sobrenome, $email, $celular, $fotografia, $link);
+        break;
     }
 ?>
